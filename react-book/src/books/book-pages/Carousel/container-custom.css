@@ -1,0 +1,9 @@
+.container-custom {
+    max-height: 650px;
+    max-width: 350px;
+}
+
+.container-custom .img-custom {
+    max-height: 650px;
+    max-width: 350px;
+}

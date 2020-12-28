@@ -1,0 +1,41 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1.3fr 0.8fr 2.8fr 1fr ;
+    grid-template-rows: 0.2fr 0.3fr 0.3fr 3.2fr 0.4fr 1.0fr;
+    gap: 0px 0px;
+}
+
+.chat-border {
+    border: solid 40px #1e88e5;
+}
+
+.chat {
+    grid-area: 2 / 2 / 6 / 3;
+    border: 4px #1e88e5;
+}
+
+.chat-profile {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.chat-find-users {
+    grid-area: 3 / 2 / 4 / 3;
+    max-width: 320px;
+}
+
+.chat-users {
+    grid-area: 4 / 2 / 6 / 3;
+}
+
+.chat-message {
+    grid-area: 3 / 3 / 5 / 3;
+}
+
+.text-area {
+    grid-area: 5 / 3 / 6 / 3;
+}
+
+.chat-send-button {
+    grid-area: 5 / 3 / 9 / 5;
+    padding-left: 550px;
+}
