@@ -40,6 +40,8 @@ public class BookController {
     }
     @GetMapping("book/getAllUserBooks")
     public List<Book> getAllUserBooks(@CurrentUser UserPrincipal userPrincipal) {
+        System.out.println("BOOK - > " + bookService.getAllUserBooks(userPrincipal.getId()));
+
         return bookService.getAllUserBooks(userPrincipal.getId());
     }
 

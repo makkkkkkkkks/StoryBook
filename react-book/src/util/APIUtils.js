@@ -120,5 +120,16 @@ export function getAllUsersWhoStartChat() {
     });
 }
 
+export function getUsers() {
+    if (!localStorage.getItem("accessToken")) {
+        return Promise.reject("No access token set.");
+    }
+
+    return request({
+        url: API_BASE_URL + "/users/summaries",
+        method: "GET",
+    });
+}
+
 
 

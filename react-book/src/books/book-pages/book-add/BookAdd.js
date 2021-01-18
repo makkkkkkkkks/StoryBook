@@ -1,7 +1,6 @@
 import React from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import {postBooks} from "../../../util/APIUtils";
 import "./addBookForm.css"
 
 
@@ -10,12 +9,13 @@ export default class BookAdd extends React.Component {
         super(props);
         this.state = {
             form: {
-                bookAuthor: '',
-                bookName: '',
-                publishingHouse: '',
-                bookLanguage: '',
-                bookFormat: '',
-                bookISBN: '',
+                id: this.props.book?.id || null,
+                bookAuthor: this.props.book?.bookAuthor || '',
+                bookName: this.props.book?.bookName || '',
+                publishingHouse: this.props.book?.publishingHouse || '',
+                bookLanguage: this.props.book?.bookLanguage || '',
+                bookFormat: this.props.book?.bookFormat || '',
+                bookISBN: this.props.book?.bookISBN || '',
             }
         }
     }
@@ -27,13 +27,10 @@ export default class BookAdd extends React.Component {
         const fieldValue = e.target.value;
         this.setState({form: {...this.state.form, [fieldName]: fieldValue}})
     };
+
     handleSubmit = (e) => {
         e.preventDefault();
-        const postBooksRequest = Object.assign({}, this.state.form);
-        postBooks(postBooksRequest).then(
-            data => {
-                console.log(data)
-            })
+        this.props.onSubmit(this.state.form)
     }
 
     render() {
@@ -42,8 +39,9 @@ export default class BookAdd extends React.Component {
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label> book name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter book name" name="bookName"
-                                      defaultValue={this.props.bookName} onChange={this.handleChange}/>
+                        <Form.Control
+                            type="text" placeholder="Enter book name" name="bookName"
+                            defaultValue={this.state.form.bookName} onChange={this.handleChange}/>
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
@@ -51,7 +49,6 @@ export default class BookAdd extends React.Component {
                         <Form.Control type="text" placeholder="Enter book author" name="bookAuthor"
                                       defaultValue={this.state.form.bookAuthor} onChange={this.handleChange}/>
                     </Form.Group>
-
 
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>publishing house</Form.Label>
@@ -68,7 +65,7 @@ export default class BookAdd extends React.Component {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
-                        <Form.Label>book formst</Form.Label>
+                        <Form.Label>book format</Form.Label>
                         <Form.Control type="text" placeholder="Enter book format"
                                       name="bookFormat"
                                       defaultValue={this.state.form.bookFormat} onChange={this.handleChange}/>
@@ -80,15 +77,14 @@ export default class BookAdd extends React.Component {
                                       name="bookISBN"
                                       defaultValue={this.state.form.bookISBN} onChange={this.handleChange}/>
                     </Form.Group>
+
                     <div>
-                        {this.props.localButton ? (
+                        {this.props.book ? (
                             <Button variant="primary" type="submit"> Save changes </Button>
                         ) : (
                             <Button variant="primary" type="submit"> Add Book </Button>
                         )}
                     </div>
-
-
                 </Form>
             </div>
         )

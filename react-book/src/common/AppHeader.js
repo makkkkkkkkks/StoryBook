@@ -29,9 +29,6 @@ class AppHeader extends Component {
                                         <NavLink to="/Chat">Chat</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/editBook">EditBook</NavLink>
-                                    </li>
-                                    <li>
                                         <a onClick={this.props.onLogout}>Logout</a>
                                     </li>
                                 </ul>
@@ -44,8 +41,7 @@ class AppHeader extends Component {
                                         <NavLink to="/signup">Signup</NavLink>
                                     </li>
                                 </ul>
-                            )
-                            }
+                            )}
                         </nav>
                     </div>
                 </div>

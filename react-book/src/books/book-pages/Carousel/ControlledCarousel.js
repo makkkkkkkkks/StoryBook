@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import First from '../Carousel/carousel-img/firts.jpg';
 import Second from '../Carousel/carousel-img/second.jpg';
 import Third from '../Carousel/carousel-img/thirst.jpg';
-
+import "./container-custom.css";
 
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
@@ -11,11 +11,11 @@ function ControlledCarousel() {
 
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
-        setDirection(e.direction);
+
     };
 
     return (
-        <Carousel activeIndex={index} direction={direction} onSelect={handleSelect}>
+        <Carousel className="container-custom" activeIndex={index} direction={direction} onSelect={handleSelect}>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
@@ -37,7 +37,6 @@ function ControlledCarousel() {
                     src={Third}
                     alt="Third slide"
                 />
-
             </Carousel.Item>
         </Carousel>
     );

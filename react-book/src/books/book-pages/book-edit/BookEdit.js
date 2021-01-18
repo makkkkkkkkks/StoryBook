@@ -19,12 +19,12 @@ class BookEdit extends React.Component {
         }
     }
 
-
     handleChange = (e) => {
         const fieldName = e.target.name;
         const fieldValue = e.target.value;
         this.setState({form: {...this.state.form, [fieldName]: fieldValue}})
     };
+
     handleSubmit = (e) => {
         e.preventDefault();
         const postBooksRequest = Object.assign({}, this.state.form);
@@ -35,10 +35,8 @@ class BookEdit extends React.Component {
         )
     }
 
-
     render() {
         return (
-
             <div className="book-add">
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
@@ -81,9 +79,7 @@ class BookEdit extends React.Component {
                                       name="bookISBN"
                                       defaultValue={this.state.form.bookISBN} onChange={this.handleChange}/>
                     </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Add Book
-                    </Button>
+                    <Button variant="primary" type="submit"> Add Book </Button>
                 </Form>
             </div>
         )

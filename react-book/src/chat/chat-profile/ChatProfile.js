@@ -21,7 +21,7 @@ class ChatProfile extends Component {
                                                  alt={this.props.currentUser.name}/>
                                         </div>
                                     ) : (
-                                        <div className="text-avatar">
+                                        <div className="chat-text-avatar">
                                             <span>{this.props.currentUser.name && this.props.currentUser.name[0]}</span>
                                         </div>
                                     )
@@ -35,7 +35,6 @@ class ChatProfile extends Component {
                         </div>
                     </div>
                 </div>
-
             </div>
         )
     }

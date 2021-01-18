@@ -48,6 +48,6 @@ public class MessageController {
 
     @GetMapping("/messages/{id}")
     public ResponseEntity<?> findMessage(@PathVariable String id) {
-        return ResponseEntity.ok(chatMessageService.findById(id));
+               return ResponseEntity.ok(chatMessageService.findById(id));
     }
 }

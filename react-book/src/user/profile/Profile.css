@@ -24,10 +24,10 @@
 .text-avatar {
     width: 200px;
     height: 200px;
-    margin: 0 auto;
+    margin: auto;
     vertical-align: middle;
     text-align: center;
-    border-radius: 50%;
+    border-radius: 5%;
     background: #46b5e5;
     background: linear-gradient(45deg, #46b5e5 1%, #1e88e5 64%, #40baf5 97%);
     background-image: -ms-linear-gradient(45deg, #46b5e5 1%, #1e88e5 64%, #40baf5 97%);
@@ -38,24 +38,24 @@
 }
 
 .text-avatar span {
-    line-height: 200px;
+    line-height: 156px;
     color: #fff;
     font-size: 3em;
 }
 
 .chat-profile-border {
-    margin: 20px;
+    margin: 10px 25px;
     border: 2px solid #c8c1c1;
     border-radius: 8px;
     background-color: #40baf5;
 }
 
-.chat-profile-name {
+.profile-name {
     font-size: 20px;
     font-family: "Comic Sans MS";
-    padding-left: 3px;
-    padding-top: 20%;
+    padding: inherit;
 }
-.profile-avatar{
+
+.profile-avatar {
     border-radius: 50%;
 }

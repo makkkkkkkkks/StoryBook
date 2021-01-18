@@ -29,12 +29,14 @@ public class UserService {
     public List<Optional<User>> getAllUsersWhoStartChat(Long id) {
         List<ChatRoom> chatRooms = chatRoomService.getAllActiveChatRoomById(id);
         List<Optional<User>> users = new ArrayList<>();
-        Optional<User> userA;
         Long recipientId;
         for (int i = 0; i < chatRooms.size(); i++) {
             recipientId = Long.parseLong(chatRooms.get(i).getRecipientId());
             users.add(userRepository.findById(recipientId));
         }
         return users;
+    }
+    public List<User> findAll(){
+        return userRepository.findAll();
     }
 }

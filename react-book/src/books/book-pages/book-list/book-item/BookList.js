@@ -11,14 +11,11 @@ export default class BookList extends React.Component {
         super(props);
         this.state = {
             booksList: [],
-
         }
     }
 
     componentDidMount() {
-        console.log(getBooks);
         getBooks().then((data) => {
-            // console.log(data);
             this.setState({booksList: data});
         });
     }
@@ -34,8 +31,7 @@ export default class BookList extends React.Component {
             <div className="card_img">
                 <CardGroup>
                     {a.map(book =>
-                        <BookItem key={book.id} book={book}
-                                  onBookClick={() => this.onBookClick(book)}
+                        <BookItem key={book.id} book={book} onBookClick={() => this.onBookClick(book)}
                         />)}
                 </CardGroup>
             </div>

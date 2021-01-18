@@ -17,11 +17,6 @@ public interface ChatMessageRepository extends JpaRepository<ChatMessage, Long> 
 
     List<ChatMessage> findByChatId(Optional<String> chatId);
 
-   /* @Modifying
-    @Query( "UPDATE ChatMessage SET status=:status WHERE senderid=:senderId AND recipienId=:recipientId")
-    boolean messageStatus(@Param("status") MessageStatus status, @Param("senderId") Long senderId, @Param("recipientId") Long recipientId);*/
 
-    @Query("update ChatMessage cm SET cm.status = status WHERE cm.senderId = senderId AND cm.recipientId = recipientId")
-    boolean  messageStatus(@Param("status") MessageStatus status, @Param("senderId") Long senderId, @Param("recipientId") Long recipientId);
 
 }

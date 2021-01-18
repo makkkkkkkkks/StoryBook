@@ -4,6 +4,7 @@ package com.example.springsocial.repository;
 import com.example.springsocial.model.Book;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import java.util.Optional;
 @Repository
 public interface BookRepository extends CrudRepository<Book, Long> {
     @Query(value = "SELECT * FROM BOOKS WHERE USERS_ID =  :id", nativeQuery = true)
-    List<Book> findAllByBookOwner(Long id);
+    List<Book> findAllByBookOwner(@Param("id") Long id);
 
     List<Book> findBookByBookAuthor(String bookAuthor);
 
